@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="lang"
+            type="String" />
+
+    </data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:background="@drawable/language_bg"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".activities_fragments.activity_language.LanguageActivity"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            >
+
+            <TextView
+                android:id="@+id/tvAr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="الرجاء تحديد اللغة"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias=".4"
+                />
+
+            <TextView
+                android:id="@+id/tvEn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAr"
+                android:layout_marginTop="5dp"
+                android:text="Please Select your language"
+
+                />
+            <ImageView
+                android:id="@+id/arrowLeft"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEn"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_left_arrow"
+                android:tint="@color/white"
+                android:padding="5dp"
+                android:rotation='@{lang.equals("ar")?180:0}'
+                android:visibility="invisible"
+                />
+            <TextView
+                android:id="@+id/tvLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/arrowLeft"
+                app:layout_constraintTop_toBottomOf="@id/tvEn"
+                app:layout_constraintEnd_toStartOf="@id/arrowRight"
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:text="العربية"
+                app:layout_constraintTop_toTopOf="@id/arrowRight"
+                app:layout_constraintBottom_toBottomOf="@id/arrowLeft"
+
+                />
+
+            <ImageView
+                android:id="@+id/arrowRight"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEn"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_left_arrow"
+                android:tint="@color/white"
+                android:padding="5dp"
+                android:rotation='@{lang.equals("ar")?0:180,default=180}'
+                />
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/arrowLeft"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15sp"
+                android:text="@string/next"
+                android:background="@drawable/rounded_white"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tvAr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="يمكنك تغيير اللغة من خلال المزيد في اي وقت"
+                app:layout_constraintTop_toBottomOf="@id/btnNext"
+                app:layout_constraintBottom_toTopOf="@id/tvEn2"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintVertical_bias="1"
+                />
+
+            <TextView
+                android:id="@+id/tvEn2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="You can change your language from more"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

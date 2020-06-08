@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "575295392209",
+    "firebase_url": "https://hattli.firebaseio.com",
+    "project_id": "hattli",
+    "storage_bucket": "hattli.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575295392209:android:be1746dd30c8bf96a4b8f0",
+        "android_client_info": {
+          "package_name": "com.hattli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575295392209-3eu4o5h7onkpah3u7oh5881aepah4ajv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hattli",
+            "certificate_hash": "0b354f3a0c02eaba29510595124a7d68aea8edf3"
+          }
+        },
+        {
+          "client_id": "575295392209-ssg3rieh7glek0c58cuqvgu6e52grbf0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRWjKu_KDPh0_ZMzj3xA_HTzlgCHcoys0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575295392209-ssg3rieh7glek0c58cuqvgu6e52grbf0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

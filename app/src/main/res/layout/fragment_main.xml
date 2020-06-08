@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="lang"
+            type="String"
+
+            />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray0"
+        android:fillViewport="true"
+        android:fitsSystemWindows="true"
+        android:scrollbars="none">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="200dp"
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recViewSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <ProgressBar
+                        android:id="@+id/progBarSlider"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        />
+                </FrameLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recViewCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recViewStore"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        />
+                    <ProgressBar
+                        android:id="@+id/progBarStore"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tvNoData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:text="@string/no_data_to_show"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llFetchLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                >
+                <ProgressBar
+                    android:id="@+id/progBarFetchLocation"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/fetching_your_location"
+                    />
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>
