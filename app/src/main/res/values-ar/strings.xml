@@ -171,4 +171,7 @@
     <string name="florist">ورد</string>
     <string name="rate">التقييم</string>
     <string name="km">كم</string>
+    <string name="work_hours">ساعات العمل</string>
+    <string name="all_day">طول اليوم</string>
+    <string name="choose_driver">إطلب مندوب الان</string>
 </resources>

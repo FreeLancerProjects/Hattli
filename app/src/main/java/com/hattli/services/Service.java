@@ -1,6 +1,7 @@
 package com.hattli.services;
 
 import com.hattli.models.NearbyStoreDataModel;
+import com.hattli.models.PlaceDetailsModel;
 import com.hattli.models.PlaceGeocodeData;
 import com.hattli.models.PlaceMapDetailsData;
 
@@ -33,4 +34,10 @@ public interface Service {
                                       @Query(value = "key") String key);
 
 
+    @GET("place/details/json")
+    Call<PlaceDetailsModel> getPlaceDetails(@Query(value = "placeid") String placeid,
+                                            @Query(value = "fields") String fields,
+                                            @Query(value = "language") String language,
+                                            @Query(value = "key") String key
+    );
 }

@@ -1,9 +1,478 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activities_fragments.activity_store_details.StoreDetailsActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="backListener"
+            type="com.hattli.interfaces.Listeners.BackListener" />
+        <variable
+            name="lang"
+            type="String" />
+        <variable
+            name="model"
+            type="com.hattli.models.PlaceModel" />
+
+
+
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                app:contentInsetEnd="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetRight="0dp"
+                app:contentInsetStart="0dp"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:onClick="@{()->backListener.back()}"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:clickable="false"
+                        android:longClickable="false"
+                        android:padding="10dp"
+                        android:rotation='@{lang.equals("ar")?180:0}'
+                        android:src="@drawable/ic_left_arrow"
+                        android:tint="@color/white"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:clickable="false"
+                        android:longClickable="false"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:text="@{model.name}"
+                        />
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <fragment
+                    android:id="@+id/map"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/consSheet"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/consSheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/btnChooseDelegate"
+                    android:padding="8dp"
+                    android:background="@color/white"
+                    >
+
+
+                    <LinearLayout
+                        android:id="@+id/llStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        >
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_clock"
+                            android:tint="@color/colorPrimary"
+                            android:layout_gravity="center_vertical"
+                            android:clickable="false"
+                            android:longClickable="false"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="15sp"
+                            android:textColor="@{model.openNow?@color/colorPrimary:@color/gray6}"
+                            android:text='@{model.openNow?@string/open:@string/close}'
+
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/llOpenHour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center_vertical"
+                        android:visibility="gone"
+                        >
+                        <TextView
+                            android:id="@+id/tvToday"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:textColor="@color/gray6"
+                            android:textSize="12sp"
+                            android:clickable="false"
+                            android:longClickable="false"
+                            android:text="@string/work_hours"
+                            />
+
+                        <ImageView
+                            android:id="@+id/arrow_down"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_down_arrow"
+                            android:padding="6dp"
+                            android:clickable="false"
+                            android:longClickable="false"
+                            android:tint="@color/colorPrimary"
+                            />
+
+                    </LinearLayout>
+
+
+
+
+                    <net.cachapa.expandablelayout.ExpandableLayout
+                        android:id="@+id/expandedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/llStatus"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:el_duration="1000"
+                        app:el_parallax=".5"
+                        app:el_expanded="false"
+                        >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+                            <View
+                                android:id="@+id/view"
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:background="@color/gray4"
+                                />
+                            <TextView
+                                android:id="@+id/tv_d1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/view"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="8dp"
+                                android:text="d1"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_d11"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:text="d11"
+                                android:textColor="@color/gray6"
+                                android:textSize="12sp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                tools:ignore="RtlCompat"
+
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_d2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+                                android:text="d2"
+
+                                />
+                            <TextView
+                                android:id="@+id/tv_d22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBaseline_toBaselineOf="@id/tv_d2"
+                                tools:ignore="RtlCompat"
+                                android:textColor="@color/gray6"
+                                android:text="d22"
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_d3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+                                android:text="d3"
+
+                                />
+                            <TextView
+                                android:id="@+id/tv_d33"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBaseline_toBaselineOf="@id/tv_d3"
+                                tools:ignore="RtlCompat"
+                                android:textColor="@color/gray6"
+                                android:text="d22"
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_d4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+                                android:text="d4"
+
+                                />
+                            <TextView
+                                android:id="@+id/tv_d44"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBaseline_toBaselineOf="@id/tv_d4"
+                                tools:ignore="RtlCompat"
+                                android:textColor="@color/gray6"
+                                android:text="d44"
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_d5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d4"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+                                android:text="d5"
+
+                                />
+                            <TextView
+                                android:id="@+id/tv_d55"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBaseline_toBaselineOf="@id/tv_d5"
+                                tools:ignore="RtlCompat"
+                                android:textColor="@color/gray6"
+                                android:text="d44"
+                                />
+
+
+                            <TextView
+                                android:id="@+id/tv_d6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d5"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+                                android:text="d5"
+
+                                />
+                            <TextView
+                                android:id="@+id/tv_d66"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBaseline_toBaselineOf="@id/tv_d6"
+                                tools:ignore="RtlCompat"
+                                android:textColor="@color/gray6"
+                                android:text="d44"
+                                />
+
+                            <TextView
+                                android:id="@+id/tv_d7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d6"
+                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray6"
+                                android:text="d5"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="8dp"
+
+                                />
+                            <TextView
+                                android:id="@+id/tv_d77"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@id/tv_d1"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginTop="2dp"
+                                android:textSize="12sp"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintBaseline_toBaselineOf="@id/tv_d7"
+                                tools:ignore="RtlCompat"
+                                android:textColor="@color/gray6"
+                                android:text="d44"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="8dp"
+                                />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </net.cachapa.expandablelayout.ExpandableLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/expandedLayout"
+                        app:layout_constraintEnd_toStartOf="@id/llDistance"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+
+                        >
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_map"
+                            android:tint="@color/colorPrimary"
+                            android:layout_gravity="center_vertical"
+                            android:clickable="false"
+                            android:longClickable="false"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="13sp"
+                            android:text="@{model.address}"
+                            android:textColor="@color/gray6"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/expandedLayout"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="13sp"
+                            android:text="@{model.distance}"
+                            android:textColor="@color/colorPrimary"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="15sp"
+                            android:text="@string/km"
+                            android:textColor="@color/gray6"
+                            />
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/btnChooseDelegate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="@string/choose_driver"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</layout>

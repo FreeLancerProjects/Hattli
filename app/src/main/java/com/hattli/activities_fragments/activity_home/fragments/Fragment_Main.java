@@ -22,6 +22,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.SphericalUtil;
 import com.hattli.R;
 import com.hattli.activities_fragments.activity_home.HomeActivity;
+import com.hattli.activities_fragments.activity_store_details.StoreDetailsActivity;
 import com.hattli.adapters.NearbyAdapter;
 import com.hattli.adapters.QueryAdapter;
 import com.hattli.databinding.FragmentMainBinding;
@@ -154,7 +155,7 @@ public class Fragment_Main extends Fragment {
                 nearbyAdapter.notifyDataSetChanged();
             }
             String loc = location.getLatitude()+","+location.getLongitude();
-
+            Log.e("loc",loc);
             Api.getService("https://maps.googleapis.com/maps/api/")
                     .getNearbyStores(loc,15000,query,lang,getString(R.string.map_api_key))
                     .enqueue(new Callback<NearbyStoreDataModel>() {
@@ -277,5 +278,13 @@ public class Fragment_Main extends Fragment {
 
     public void setQueryItemData(int adapterPosition) {
         getStores(queriesList.get(adapterPosition));
+    }
+
+    public void setPlaceData(PlaceModel placeModel) {
+        Intent intent = new Intent(activity, StoreDetailsActivity.class);
+        intent.putExtra("data",placeModel);
+        intent.putExtra("lat",location.getLatitude());
+        intent.putExtra("lng",location.getLongitude());
+        startActivity(intent);
     }
 }

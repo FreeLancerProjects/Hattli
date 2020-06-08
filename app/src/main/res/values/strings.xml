@@ -165,5 +165,8 @@
     <string name="florist">Florist</string>
     <string name="rate">Rate</string>
     <string name="km">Km</string>
+    <string name="work_hours">Work Hours</string>
+    <string name="all_day">All Day</string>
+    <string name="choose_driver">Choose Driver</string>
 
 </resources>

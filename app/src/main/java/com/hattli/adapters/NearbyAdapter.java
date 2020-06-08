@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hattli.R;
+import com.hattli.activities_fragments.activity_home.fragments.Fragment_Main;
 import com.hattli.databinding.NearbyRowBinding;
 import com.hattli.models.PlaceModel;
 
@@ -56,7 +57,10 @@ public class NearbyAdapter extends RecyclerView.Adapter<NearbyAdapter.MyHolder> 
 
         holder.itemView.setOnClickListener(v -> {
             PlaceModel placeModel1 = placeModelList.get(holder.getAdapterPosition());
-
+            if (fragment instanceof Fragment_Main){
+                Fragment_Main fragment_main = (Fragment_Main) fragment;
+                fragment_main.setPlaceData(placeModel1);
+            }
 
         });
     }
