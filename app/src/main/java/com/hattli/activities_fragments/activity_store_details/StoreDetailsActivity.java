@@ -88,11 +88,11 @@ public class StoreDetailsActivity extends AppCompatActivity implements Listeners
                 binding.expandedLayout.collapse(true);
 
                 binding.arrowDown.clearAnimation();
-                binding.arrowDown.animate().setDuration(700).rotation(0).start();
+                binding.arrowDown.animate().setDuration(300).rotation(0).start();
             } else {
                 binding.expandedLayout.expand(true);
                 binding.arrowDown.clearAnimation();
-                binding.arrowDown.animate().setDuration(700).rotation(180).start();
+                binding.arrowDown.animate().setDuration(300).rotation(180).start();
 
             }
         });

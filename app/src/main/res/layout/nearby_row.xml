@@ -170,10 +170,9 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_right_arrow"
+                android:src='@{lang.equals("ar")?@drawable/ic_left_arrow:@drawable/ic_right_arrow}'
                 android:padding="3dp"
                 android:tint="@color/colorPrimary"
-                android:rotation='@{lang.equals("ar")?180:0}'
                 />
         </androidx.cardview.widget.CardView>
         
