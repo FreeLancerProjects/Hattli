@@ -168,5 +168,12 @@
     <string name="work_hours">Work Hours</string>
     <string name="all_day">All Day</string>
     <string name="choose_driver">Choose Driver</string>
+    <string name="write_your_order_here">Write your order here</string>
+    <string name="add_coupon">Add Coupon</string>
+    <string name="delivery_location">Delivery Location</string>
+    <string name="delivery_time2">Delivery Time</string>
+    <string name="select_a_picture_to_upload">Select a photo to upload</string>
+    <string name="coupon_code">Coupon code</string>
+    <string name="follow_us">Follow us on social media to get coupon</string>
 
 </resources>

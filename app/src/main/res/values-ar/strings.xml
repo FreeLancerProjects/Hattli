@@ -174,4 +174,11 @@
     <string name="work_hours">ساعات العمل</string>
     <string name="all_day">طول اليوم</string>
     <string name="choose_driver">إطلب مندوب الان</string>
+    <string name="write_your_order_here">إكتب طلبك هنا او يمكنك ارسال صورة</string>
+    <string name="add_coupon">إضافة كوبون</string>
+    <string name="delivery_location">مكان الإستلام</string>
+    <string name="delivery_time2">وقت الإستلام</string>
+    <string name="select_a_picture_to_upload">إختر صورة لرفعها</string>
+    <string name="coupon_code">الكوبون</string>
+    <string name="follow_us">تابعنا على مواقع التواصل الاجتماعي للحصول على الكوبونات</string>
 </resources>

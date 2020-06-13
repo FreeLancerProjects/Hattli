@@ -22,10 +22,18 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-        <activity android:name=".activities_fragments.activity_store_details.StoreDetailsActivity"
+        <activity android:name=".activities_fragments.activity_coupon.CouponActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden"
             />
+        <activity
+            android:name=".activities_fragments.activity_send_place_order.SendPlaceOrderActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_fragments.activity_store_details.StoreDetailsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".activities_fragments.activity_search.SearchActivity"
             android:configChanges="keyboardHidden|screenSize|orientation" />

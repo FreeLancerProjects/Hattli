@@ -25,6 +25,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.ui.IconGenerator;
 import com.hattli.R;
+import com.hattli.activities_fragments.activity_send_place_order.SendPlaceOrderActivity;
 import com.hattli.databinding.ActivityStoreDetailsBinding;
 import com.hattli.interfaces.Listeners;
 import com.hattli.language.Language;
@@ -95,6 +96,14 @@ public class StoreDetailsActivity extends AppCompatActivity implements Listeners
                 binding.arrowDown.animate().setDuration(300).rotation(180).start();
 
             }
+        });
+
+        binding.btnChooseDelegate.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SendPlaceOrderActivity.class);
+            intent.putExtra("data",placeModel);
+            startActivity(intent);
+
+
         });
         setUpMap();
         getPlaceDetails(placeModel);

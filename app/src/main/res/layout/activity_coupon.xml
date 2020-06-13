@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="backListener"
+            type="com.hattli.interfaces.Listeners.BackListener" />
+        <variable
+            name="lang"
+            type="String" />
+
+
+
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/gray0"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{()->backListener.back()}"
+                android:orientation="horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+
+                >
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:padding="8dp"
+                    android:rotation='@{lang.equals("ar")?180:0}'
+                    android:src="@drawable/ic_left_arrow"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:text="@string/coupon"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:fillViewport="true"
+            android:background="@color/white"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/rounded_gray_light"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/discount"
+                        android:layout_gravity="center_vertical"
+
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/transparent"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:textColorHint="@color/gray4"
+                        android:hint="@string/coupon_code"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:singleLine="true"
+                        />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rounded_primary_btn"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:text="@string/confirm"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/gray4"
+                    android:textSize="14sp"
+                    android:text="@string/follow_us"
+                    android:gravity="center"
+                    />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="center_horizontal"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/facebook"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/youtube"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/twitter"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/instagram"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+
+</layout>
