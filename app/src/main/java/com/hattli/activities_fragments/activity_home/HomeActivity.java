@@ -35,6 +35,7 @@ import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.hattli.R;
 import com.hattli.activities_fragments.activity_about_app.AboutAppActivity;
+import com.hattli.activities_fragments.activity_cart.CartActivity;
 import com.hattli.activities_fragments.activity_home.fragments.Fragment_Main;
 import com.hattli.activities_fragments.activity_home.fragments.Fragment_More;
 import com.hattli.activities_fragments.activity_home.fragments.Fragment_Profile;
@@ -133,6 +134,13 @@ public class HomeActivity extends AppCompatActivity implements Listeners.Setting
                 Common.CreateDialogAlert(this, getString(R.string.please_sign_in_or_sign_up));
             }*/
 
+        });
+
+
+        binding.flCart.setOnClickListener(view -> {
+
+            Intent intent = new Intent(this, CartActivity.class);
+            startActivity(intent);
         });
 
         binding.llHome.setOnClickListener(v -> setSelectedNavItem(0));

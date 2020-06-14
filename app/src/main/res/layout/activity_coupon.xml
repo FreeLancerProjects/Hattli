@@ -75,7 +75,7 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             android:fillViewport="true"
-            android:background="@color/white"
+            android:background="@drawable/signup_bg"
             >
 
             <LinearLayout

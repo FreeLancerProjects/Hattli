@@ -181,4 +181,7 @@
     <string name="select_a_picture_to_upload">إختر صورة لرفعها</string>
     <string name="coupon_code">الكوبون</string>
     <string name="follow_us">تابعنا على مواقع التواصل الاجتماعي للحصول على الكوبونات</string>
+    <string name="site">الموقع الالكتروني</string>
+    <string name="send_message">أو قم بإرسال رسالة إلينا</string>
+    <string name="email_or_phone">البريد الالكتروني او رقم الجوال</string>
 </resources>

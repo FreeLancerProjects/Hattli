@@ -175,5 +175,8 @@
     <string name="select_a_picture_to_upload">Select a photo to upload</string>
     <string name="coupon_code">Coupon code</string>
     <string name="follow_us">Follow us on social media to get coupon</string>
+    <string name="site">Site</string>
+    <string name="send_message">Send Message</string>
+    <string name="email_or_phone">Email or Phone</string>
 
 </resources>

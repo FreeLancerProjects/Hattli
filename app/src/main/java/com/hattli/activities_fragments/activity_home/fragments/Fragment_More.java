@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 
 import com.hattli.R;
 import com.hattli.activities_fragments.activity_about_app.AboutAppActivity;
+import com.hattli.activities_fragments.activity_contact.ContactActivity;
 import com.hattli.activities_fragments.activity_home.HomeActivity;
 import com.hattli.databinding.FragmentMoreBinding;
 import com.hattli.interfaces.Listeners;
@@ -94,7 +95,8 @@ public class Fragment_More extends Fragment implements Listeners.SettingActions{
 
     @Override
     public void contactUs() {
-
+        Intent intent = new Intent(activity, ContactActivity.class);
+        startActivity(intent);
     }
 
 
